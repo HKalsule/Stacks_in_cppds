@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    stack<int> st;
+    
+    int n="1 2 3 4 5";
+    //output expected : 5 4 3 2 1 
+int digit = 0;
+
+while(n!=0)
+{
+    digit = n%10;
+    st.push(digit);
+    n=n/10;
+}
+
+int n_reverse = 0;
+int multiplier = 1;
+int temp = 0;
+while(!st.empty())
+{
+    digit = st.top();
+    st.pop();
+    temp=digit*multiplier;
+    n_reverse = n_reverse + temp;
+    multiplier = multiplier*10;
+}
+
+cout << "The reverse of the number is : " << n_reverse << endl;
+}
